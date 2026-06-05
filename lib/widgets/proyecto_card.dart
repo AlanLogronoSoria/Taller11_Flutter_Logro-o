@@ -32,55 +32,57 @@ class ProyectoCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            titulo, // Usar el parámetro
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue[800],
+      // Mantenemos el scroll para evitar overflow si la descripción es muy larga
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              titulo, // Usar el parámetro
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue[800],
+              ),
             ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            descripcion, // Usar el parámetro
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[600],
-              height: 1.5,
+            const SizedBox(height: 8),
+            Text(
+              descripcion, // Usar el parámetro
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey[600],
+                height: 1.5,
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.blue[50],
-              borderRadius: BorderRadius.circular(20),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: Colors.blue[50],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                tecnologias, // Usar el parámetro
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.blue[700],
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
-            child: Text(
-              tecnologias, // Usar el parámetro
+            const SizedBox(height: 12),
+            Text(
+              'Estado: $estado', // Usar el parámetro
               style: TextStyle(
                 fontSize: 12,
-                color: Colors.blue[700],
+                color: Colors.green[600],
                 fontWeight: FontWeight.w500,
               ),
             ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            'Estado: $estado', // Usar el parámetro
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.green[600],
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
-
